@@ -1,0 +1,80 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html><head>
+    <script src="p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+
+    <script type='text/javascript' > 
+	  var showtemp = false; 
+	  var buttonClicked = '';
+	</script>
+
+    <script src="p5.dom.min.js"></script>
+    <script src="main.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+
+  </head>
+  <body>
+    <script src="sketch.js"></script>
+
+    <div id="line1" style="height: 2px;position: absolute;width: 78%;margin-left: 180px;
+    border:none;
+  	border-top:1px dashed rgba(255, 255, 255, .2);
+  	z-index: 100;
+  	/*margin-left: 165px;
+  	padding-right: 165px;*/
+
+  	">
+    	
+    </div>
+
+    <div id="line2" style="height: 2px;position: absolute;width: 78%;margin-left: 180px;
+  	border-top:1px dashed rgba(255, 255, 255, .2);
+  	z-index: 100;
+  	;">
+    	
+    </div>
+
+    <div id="line3" style="height: 2px;position: absolute;width: 78%;margin-left: 180px;
+  	border-top:1px dashed rgba(255, 255, 255, .2);
+  	z-index: 100;
+  	;">
+    	
+    </div>
+
+   	<div id="bar" style="height: 87%; width: 20px;margin-top:90px; background: red; position: absolute; right: 136px;
+   	background-image: linear-gradient(blue, red)">
+   		
+   	</div>
+
+   	<div id="bar" style="margin-top:70px;  position: absolute; right: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+   		<p>
+   			18°C
+   		</p>
+   	</div>
+   		<div id="bar" style="margin-top:690px;  position: absolute; right: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+   		<p>
+   			40°C
+   		</p>
+   	</div>
+
+   	<div class="clockContainer">
+	  	<div class="clockTop"></div>
+	  	<div class='clockOut'>
+	      <div class="clockNeedle"></div>
+	    </div>
+	</div>
+
+	<div id="timeAnimation" style="color: white; position: absolute;top:665px;left: 65px; font-family: 'ZCOOL QingKe HuangYou';font-size: 28px">
+    	<span id="minute">0</span>&nbsp:&nbsp<span id="second" >00</span> <span style="font-size: 16px; font-family: 'Bree Serif'; opacity: 0.3;"> min</span>
+    </div>
+
+
+
+</body></html>

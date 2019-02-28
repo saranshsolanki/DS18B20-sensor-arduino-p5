@@ -1,0 +1,171 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: black;
+}
+canvas {
+  display: block;
+  padding-left: 165px;
+  padding-right: 100px;
+}
+
+body {
+  background: black;
+}
+.pulse-loader {
+	height: 50px;
+	margin: auto 0;
+	position: relative;
+	width: 50px;
+	position: absolute;
+	left: 715px;
+	top: 250px;
+}
+.pulse-loader:before, .pulse-loader:after {
+	animation: pulse-loader infinite 2s;
+	box-shadow: 0 0 5px #fff;
+	border-radius: 50%;
+	border: 3px solid #fff;
+	content: '';
+	display: block;
+	height: 100%;
+	left: -3px;
+	opacity: 0;
+	position: absolute;
+	top: -3px;
+	width: 100%;
+}
+.pulse-loader:after {
+	animation-delay: 1s;
+}
+@keyframes pulse-loader {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: white;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	display: block;
+	stroke-width: 2;
+	stroke: black;
+	stroke-miterlimit: 10;
+	margin: 10% auto;
+	box-shadow: inset 0px 0px 0px white;
+	animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+	left: 715px;
+	top: 100px;
+	position: absolute;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px white;
+  }
+}
+
+
+.clockContainer{
+position: absolute;
+  top:660px; left:20px;  
+  width: 30px;
+  height: 30px;
+  border: 1px solid transparent;
+}
+
+.clockOut{
+  width: 80%;
+  height: 80%;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom:0;
+  margin-left: auto; margin-right: auto; left:0; right:0;
+}
+
+.clockTop{
+  border-top: 2px solid white;
+   border-right: 2px solid white;
+   border-left: 2px solid white;
+  width: 8px;
+  top: -4px;
+  position: absolute;
+  margin-left: auto; margin-right: auto; left:0; right:0;
+  height: 7px;
+  border-radius: 3px;
+}
+
+.clockNeedle{
+  width: 2px;
+  height: 8px;
+  background: white;
+  position: absolute;
+  top: 15%;
+  left: 11px;
+  transform-origin:50% 100%;
+  -webkit-transform-origin:50% 100%;
+  -webkit-animation: needleAnimation 3s linear 0s 5; 
+  animation: needleAnimation 3s linear 0s 5;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes needleAnimation {
+    from {
+    	
+    }
+    to {
+    	-webkit-transform:rotate(360deg); 
+	}
+}
+
+/* Standard syntax */
+@keyframes needleAnimation {
+   from {
+    	
+    }
+    to {
+    	-ms-transform:rotate(360deg); 
+    	-moz-transform:rotate(360deg); 
+    	-webkit-transform:rotate(360deg); 
+	}
+}

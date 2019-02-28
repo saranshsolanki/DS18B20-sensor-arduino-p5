@@ -1,0 +1,147 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html><head>
+    <script src="p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    
+    <script type='text/javascript' > 
+      var myFunctionTag = false; 
+    </script>
+
+    <script src="p5.dom.min.js"></script>
+     <script src="main.js"></script>
+     <script src="sketch.js"></script>
+    <script src="p5.sound.min.js"></script>
+    <script src="p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <style type="text/css">
+      .p5Canvas{
+        display: none !important;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- take 12 readings -->
+    <div class="text" id="largeHeader"style="width: 920px;padding-left:200px;margin-top:160px; font-size: 60px;color: white; font-family:'Bree Serif'  ">
+      <p id="title">
+        Thermal Conductivity <br>of Materials
+      </p>
+    </div>
+
+
+    <div id = "buttonFamily" style="display: none;">
+      <!-- Plastic -->
+      <div style="position: absolute; left:200px; font-size: 24px;color: white; font-family:'Bree Serif' ">
+        <p style="color: white">
+          Plastic
+        </p>
+
+        <div class = "readingButton" id= "plastic1" style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 1
+        </div>
+
+        <div class = "readingButton" id= "plastic2" style="width:180px; height: 40px; ;left: 200px; top: 510px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 2
+        </div>
+        <div class = "readingButton" id= "plastic3"  style="width:180px; height: 40px; ;left: 200px; top: 580px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 3
+        </div>
+        <div class = "readingButton" id= "plastic4" style="width:180px; height: 40px; ;left: 200px; top: 650px; margin-bottom:10px;background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 4
+        </div>
+
+      </div>
+
+      <!-- Wood -->
+      <div style="position: absolute; left:600px;; font-size: 24px;color: white; font-family:'Bree Serif' ">
+        <p style="color: white">
+          Wood
+        </p>
+
+        <div class = "readingButton" id= "wood1"  style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 1
+        </div>
+
+        <div class = "readingButton" id= "wood2"  style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 2
+        </div>
+        <div class = "readingButton" id= "wood3" style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 3
+        </div>
+        <div class = "readingButton" id= "wood4" style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 4
+        </div>
+
+      </div>
+
+      <!-- Steel -->
+      <div style="position: absolute; left:1000px;; font-size: 24px;color: white; font-family:'Bree Serif' ">
+        <p style="color: white">
+          Steel
+        </p>
+
+        <div class = "readingButton" id= "steel1"  style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 1
+        </div>
+
+        <div  class = "readingButton" id= "steel2"  style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 2
+        </div>
+        <div class = "readingButton" id= "steel3"  style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 3
+        </div>
+        <div  class = "readingButton" id= "steel4"  style="width:180px; height: 40px; left: 200px; top: 440px;margin-bottom:10px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         Reading 4
+        </div>
+
+      </div>
+
+      <div style="position: absolute; left:1000px;; top: 220px; font-size: 24px;color: white; font-family:'Bree Serif' ">
+         <div class = "analyze" id= "analyzeButton"  onclick="f3()" style="width:180px; height: 40px; left: 200px; top: 0px;margin-bottom:10px; background: green;color: white;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+         ANALYZE RESULTS
+        </div>
+      </div>
+    </div>
+
+    <div class="pulse-loader" id= "timerLoader" style="display: none"></div>
+    <div>
+      <svg class="checkmark" id="checkMark"  style="display: none" sxmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+    </div>
+    <div id="timer" style="display: none; position: absolute; top:100px;left: 535px">
+      <p style="margin-top:20px; font-size: 36px;color: white; font-family:'Bree Serif' ">
+        Let's wait for the reading! 
+      </p>
+
+      <p id="tempValue" style="margin-top:164px; z-index:100;font-size: 64px;color: white; font-family:'Bree Serif'; text-align: center; display: none; left: 120px;position: absolute;">
+        23.52
+      </p>
+
+      <p id="finalTempValue" onclick="f2()" style="margin-top:164px; z-index:100;font-size: 64px;color: white; font-family:'Bree Serif'; text-align: center; display: none; left: 120px;position: absolute;">
+        23.52
+      </p>
+
+      <p style="position: absolute; top:280px; left:280px; margin-top:20px; font-size: 36px;color: white; font-family:'Bree Serif' ">
+        °C
+      </p>
+
+    </div>
+
+    <div id= "recordReading" style="width:180px; height: 40px; position: absolute;left: 660px; top: 510px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;display: none">
+      Submit value
+    </div>
+
+
+    <div id= "button" onclick="f1()" style="width:180px; height: 40px; position: absolute;left: 200px; top: 410px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;">
+      Click to start
+    </div>
+    
+
+
+</body></html>
