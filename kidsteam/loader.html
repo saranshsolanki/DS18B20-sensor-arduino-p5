@@ -1,0 +1,57 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html><head>
+    <script src="p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    
+    <script type='text/javascript' > 
+      var myFunctionTag = false; 
+      var finalData = 0;
+    </script>
+
+    <script src="p5.dom.min.js"></script>
+    <script src="main.js"></script>
+    <!-- <script src="sketch.js"></script> -->
+    <script src="p5.sound.min.js"></script>
+    <script src="p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <style type="text/css">
+      .p5Canvas{
+        display: none !important;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- take 12 readings -->
+    <div id="counter" style="font-size: 300px;color: white;margin: auto;width: 100%;text-align: center;display: none;top:300px">
+      5
+    </div>
+
+    
+    
+  </body>
+  <script type="text/javascript">
+
+    var index = 5;
+    setInterval (function(){
+      
+      document.getElementById("counter").style.display = "block";
+      
+      document.getElementById("counter").innerHTML = index;
+      index--;
+
+      if(index == -1){
+        window.location.href = "index.html";
+      }
+      // index;
+    } , 1000);
+
+  </script>
+</html>

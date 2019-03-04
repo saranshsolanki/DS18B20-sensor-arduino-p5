@@ -1,0 +1,168 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html>
+
+<head>
+    <script src="p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+
+    <script type='text/javascript' > 
+	  var showtemp = false; 
+	  var buttonClicked = '';
+    
+    var numberOfReading = 0;
+
+	</script>
+    <script src="main.js"></script>
+    <script src="p5.dom.min.js"></script>
+    <!-- <script src="main.js"></script> -->
+    <script src="p5.sound.min.js"></script>
+    <script src="p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+
+</head>
+<body>
+
+  <script src="sketch.js"></script>
+  <div id="bar" style="margin-top:65px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      50°C
+    </p>
+  </div>
+
+  <div id="line50" style="height: 2px;position: absolute;width: 82%;margin-left: 156px; top:91px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:183px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      40°C
+    </p>
+  </div>
+
+  <div id="line40" style="height: 2px;position: absolute;width: 82%;margin-left: 156px; top:209px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:301px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      30°C
+    </p>
+  </div>
+
+  <div id="line30" style="height: 2px;position: absolute;width: 82%;margin-left: 156px; top:327px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:419px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      20°C
+    </p>
+  </div>
+
+  <div id="line20" style="height: 2px;position: absolute;width: 82%;margin-left: 156px; top:445px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:537px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      10°C
+    </p>
+  </div>
+
+  <div id="line10" style="height: 2px;position: absolute;width: 82%;margin-left: 156px; top:564px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:655px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      0°C
+    </p>
+  </div>
+
+   <div id="line0" style="height: 2px;position: absolute;width: 82%;margin-left: 156px; top:682px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="lineTime" style="height: 2px;position: absolute;width: 83.3%;margin-left: 136px; top:680px;
+    border-top:4px solid rgba(255, 255, 255);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 170px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      0 min
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 386px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      1 min
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 622px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      2 min
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 858px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      3 min
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 1094px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      4 min
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 1300px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      5 min
+    </p>
+  </div>
+
+
+
+  
+
+
+  <div id="bar" style="height: 80%; width: 20px;margin-top:90px;margin-bottom:90px; background: red; position: absolute; left: 136px;
+  background-image: linear-gradient(red, blue)">
+  </div>
+
+  <svg height="100%" width="100%" style="position: absolute;">
+    <line id="line" x1="150" y1="150" x2="150" y2="150" style="stroke:rgb(255,255,255, 0.5);stroke-width:1; " stroke-dasharray="4"  />
+    Sorry, your browser does not support inline SVG.
+  </svg>
+
+
+
+</body></html>

@@ -1,0 +1,62 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html><head>
+    <script src="p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    
+    <script type='text/javascript' > 
+      var myFunctionTag = false; 
+      var finalData = 0;
+      var tempVal1;
+    </script>
+
+    <script src="p5.dom.min.js"></script>
+    <script src="main.js"></script>
+    <!-- <script src="sketch.js"></script> -->
+    <script src="p5.sound.min.js"></script>
+    <script src="p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8">
+    <style type="text/css">
+      .p5Canvas{
+        display: none !important;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <!-- take 12 readings -->
+    <div class="text" id="largeHeader"style="width: 920px;padding-left:200px;margin-top:160px; font-size: 60px;color: white; font-family:'Bree Serif'  ">
+      <p id="title">
+        Select a spoon<br>of your choice
+      </p>
+    </div>
+
+    <div style="margin-top: 130px">
+      <img style="width: 8%;margin-left:230px"src="img/spoon.png">
+      <div   style=" height: 40px; position: absolute;left: 400px; top: 430px;;color: white;border-radius: 2px;text-align: left;padding-top: 24px;font-size: 32px; font-family: 'Bree Serif'; cursor: pointer;">Steel Spoon
+      </div>
+
+      <div id= "steelSpoon"  style="width:180px; height: 40px; position: absolute;left: 400px; top: 520px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;"><a href="instructions.html">Select</a> 
+      </div>
+    </div>
+
+    <div style="margin-top: 100px" >
+      <img style="width: 8%;margin-left:230px; position: absolute;top: 440px;left: 600px"src="img/spoon.png">
+      <div   style=" height: 40px; position: absolute;left: 980px; top: 430px;;color: white;border-radius: 2px;text-align: left;padding-top: 24px;font-size: 32px; font-family: 'Bree Serif'; cursor: pointer;">Wood Spoon
+      </div>
+
+      <div id= "woodSpoon"  style="width:180px; height: 40px; position: absolute;left: 980px; top: 520px; background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Bree Serif'; cursor: pointer;"><a href="instructions.html">Select</a> 
+      </div>
+    </div>
+    
+    
+    
+
+
+</body></html>
