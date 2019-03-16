@@ -30,30 +30,48 @@
   </head>
   <body>
 
-
     <div class="container">
-      <div id="counter" style="font-size: 300px;color: white;margin: auto;width: 100%;text-align: center;display: none;top:300px;margin-top: 200px">
-        5
+      <!-- take 12 readings -->
+      <div style="float: left;width: 40%;margin-top:8%;">
+        <div class="text" id="largeHeader"style=" font-size: 60px;color: white; font-family:'Bree Serif'  ">
+          <p id="title">
+            <span style="font-size: 30px;font-family: 'Quicksand';color: #EA8C53; font-weight: bold ">Well Done!</span><br>
+            You successfully explored the <span> Wood </span> Island. 
+          </p>
+        </div>
+
+        <div id="button" style="width: 100%; padding-top: 50px;">
+          <a href="explore.html" id ="button_link"><div class="primary-button" id= "button">CONTINUE</div></a>
+        </div>
       </div>
+
+      
+      <img src="img/wood_island.png" style="margin-top:10%;width: 60%">
+
+      
     </div>
 
+
+    
+    
   </body>
-  
   <script type="text/javascript">
     var hash = (window.location.hash);
-    var index = 5;
-    setInterval (function(){
-      
-      document.getElementById("counter").style.display = "block";
-      
-      document.getElementById("counter").innerHTML = index;
-      index--;
-
-      if(index == -1){
-        window.location.href = "index.html" + hash;
-      }
-      // index;
-    } , 1000);
-
+    if(hash == '#wood'){
+      document.getElementById("button_link").href += '#plastic'; 
+    }
+    if(hash == '#plastic'){
+      document.getElementById("button_link").href += '#steel'; 
+    }
   </script>
+  <!-- auto load script -->
+  <!-- <script type="text/javascript">
+     window.setTimeout(function(){
+
+        // Move to a new location or you can do something else
+        window.location.href = "instructions2.html";
+
+    }, 6000);
+
+  </script> -->
 </html>

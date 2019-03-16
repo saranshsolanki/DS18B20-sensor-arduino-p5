@@ -1,0 +1,272 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html><head>
+    <script src="js/p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
+
+    
+    <script type='text/javascript' > 
+      var myFunctionTag = false; 
+      var tempVal1 = [];
+      var timeVal1= [];
+      var numberOfReading = 0;
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+    <script src="js/p5.dom.min.js"></script>
+     <script src="js/main.js"></script>
+     <script src="js/sketch.js"></script>
+    <script src="js/p5.sound.min.js"></script>
+    <script src="js/p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <style type="text/css">
+      .p5Canvas{
+        display: none !important;
+      }
+      html, body {
+        /* The image used */
+        background-image: url("img/ocean.png");
+
+        /* Full height */
+        height: 100%; 
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="bg"></div>
+
+    <!-- active island -->
+    <div>
+      <img class="island_explore bounce-2" id ="wood_island" src="img/wood_island_explore.png" style="display:none; width: 230px;position: absolute;top: 464px;left: 97px;">
+
+      <img class="island_explore bounce-2" id ="plastic_island" src="img/plastic_island_explore.png" style="; width: 225px;position: absolute;top: 115px;left: 704px;">
+
+
+      
+      <!-- <img id ="wood_island" src="img/wood_island_explore.png" style="width: 230px;position: absolute;top: 464px;left: 97px;">
+      <img id ="wood_island" src="img/wood_island_explore.png" style="width: 230px;position: absolute;top: 464px;left: 97px;">
+ -->
+    </div>
+    <div class="container" style="">
+      <!-- take 12 readings -->
+      <div id="banner-main" style=" ">
+        <h1 class="cursor"></h1>
+          <!-- Tiffanie's questions come here. -->
+      </div>
+
+      <div style="float: left;width: 40%;margin-top:15%;">
+        <div class="output" id="output" style=" font-size: 32px;color: #EA8C53; font-family:'Quicksand'; font-weight: bold; ">
+         
+        
+        </div>
+
+        <div id="button" class="wood-button" style="position:absolute; top: 570px; left: 350px; z-index: 100 ">
+          <a href="instructions.html#wood"><div class="island-button" >Wood</div></a>
+        </div>
+
+        <div id="button" class="plastic-button" style="position:absolute; top: 200px; left: 490px; z-index: 100  ; ">
+          <a href="instructions.html#plastic"><div class="island-button" >Plastic</div></a>
+        </div>
+
+        <div id="button" class ="steel-button" style="position:absolute; top: 580px; left: 840px; z-index: 100 ; ">
+          <a href="instructions.html#steel"><div class="island-button" >Steel</div></a>
+        </div>
+
+
+        <!-- <div id="draw0"></div> -->
+        <div id="path1" style="width: 640px;margin-top: 120px;margin-left:50px;display: none;">
+            <svg width="535px" height="161px" viewBox="0 0 525 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+                <title>path 1</title>
+                <desc>Created with Sketch.</desc>
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="11.51999954223629,19.19999893188469" stroke-linecap="round" stroke-linejoin="round">
+                    <g id="Desktop-HD-Copy-4" transform="translate(-349.000000, -434.000000)" stroke="#FFFFFF" stroke-width="11.5199998">
+                        <path class="path" d="M355,589 C386.583581,505.469364 436.68161,456.664977 505.294088,442.586836 C608.212805,421.469626 638.288687,536.304476 716.301595,545.604796 C768.3102,551.80501 823.209668,532.395635 881,487.376673" id="path-1"></path>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        
+
+        <div class="island_label" style="position:absolute; top: 570px; left: 350px;">
+          Wood
+        </div>
+        <div class="island_label" style="position:absolute; top: 200px; left: 490px;">
+          Plastic
+        </div>
+        <div class="island_label" style="position:absolute; top: 580px; left: 840px;">
+          Steel
+        </div>
+
+
+        
+      </div>
+
+
+      
+      <!-- <img src="img/island.png" style="margin-top:15%;width: 50%;float: right"> -->
+
+      
+    </div>
+  </body>
+  <script type="text/javascript">
+     var hash = (window.location.hash);
+     console.log(hash);
+
+     if(hash == '' || hash == '#wood'){
+      document.getElementById('wood_island').style.display = 'block';
+      document.body.style.backgroundImage = "url('img/ocean-wood.png')";
+      document.getElementsByClassName('plastic-button')[0].style.display = 'none';
+      document.getElementsByClassName('steel-button')[0].style.display = 'none';
+
+     }
+     if(hash == '#plastic'){
+      document.getElementById('wood_island').style.display = 'none';
+      document.body.style.backgroundImage = "url('img/ocean-plastic.png')";
+      document.getElementById('path1').style.display = 'block';
+
+      document.getElementsByClassName('wood-button')[0].style.display = 'none';
+      document.getElementsByClassName('steel-button')[0].style.display = 'none';
+      document.getElementsByClassName('plastic-button')[0].style.display = 'block';
+
+     }
+  </script>
+
+
+  <script type="text/javascript">
+
+    window.onload = function () {
+    var i = 0,
+        a = 0,
+        queue = 0,
+        isBackspacing = false,
+        isParagraph = false;
+
+    // Typerwrite text content. Use a pipe to indicate the start of the second line "|". 
+    var hash = (window.location.hash);
+    if(hash == '' || hash == '#wood'){
+      var textArray = [
+        "Start with the Wood Island."
+      ];
+    }
+    if (hash == '#plastic'){
+      var textArray = [
+        "Great! Time to explore the Plastic Island.", 
+      ];
+    }
+    if (hash == '#steel'){
+      var textArray = [
+        "Amazing! Let's explore the Steel Island", 
+      ];
+    }
+    
+
+    // Speed (in milliseconds) of typing.
+    var speedForward = 50, //Typing Speed
+        speedWait = 10000, // Wait between typing and backspacing
+        speedBetweenLines = 2000, //Wait between first and second lines
+        speedBackspace = 5; //Backspace Speed
+
+    //Run the loop
+    typeWriter("banner-main", textArray);
+
+    function typeWriter(id, ar) {
+
+      var element = $("#" + id),
+          aString = ar[a],
+          eHeader = element.children("h1"), //Header element
+          eParagraph = element.children("p"); //Subheader element
+      
+      if(queue<1){
+          // Determine if animation should be typing or backspacing
+        if (!isBackspacing) {
+          
+          // If full string hasn't yet been typed out, continue typing
+          if (i < aString.length) {
+            
+            // If character about to be typed is a pipe, switch to second line and continue.
+            if (aString.charAt(i) == "|") {
+              isParagraph = true;
+              eHeader.removeClass("cursor");
+              eParagraph.addClass("cursor");
+              i++;
+              setTimeout(function(){ typeWriter(id, ar); }, speedBetweenLines);
+              
+            // If character isn't a pipe, continue typing.
+            } else {
+              // Type header or subheader depending on whether pipe has been detected
+              if (!isParagraph) {
+                eHeader.text(eHeader.text() + aString.charAt(i));
+              } else {
+                eParagraph.text(eParagraph.text() + aString.charAt(i));
+              }
+              i++;
+              setTimeout(function(){ typeWriter(id, ar); }, speedForward);
+            }
+            
+          // If full string has been typed, switch to backspace mode.
+          } else if (i == aString.length) {
+            isBackspacing = true;
+            queue = queue+1;
+            setTimeout(function(){ typeWriter(id, ar); }, speedWait);
+          }
+
+
+        // If backspacing is enabled
+        } else {
+          // If either the header or the paragraph still has text, continue backspacing
+          if (eHeader.text().length > 0 || eParagraph.text().length > 0) {
+            
+            // If paragraph still has text, continue erasing, otherwise switch to the header.
+            if (eParagraph.text().length > 0) {
+              eParagraph.text(eParagraph.text().substring(0, eParagraph.text().length - 1));
+            } else if (eHeader.text().length > 0) {
+              eParagraph.removeClass("cursor");
+              eHeader.addClass("cursor");
+              eHeader.text(eHeader.text().substring(0, eHeader.text().length - 1));
+            }
+            setTimeout(function(){ typeWriter(id, ar); }, speedBackspace);
+          // If neither head or paragraph still has text, switch to next quote in array and start typing.
+          } else { 
+            isBackspacing = false;
+            i = 0;
+            isParagraph = false;
+            if(a<1){
+              console.log("1");
+              a = (a + 1);
+              queue = queue+1;
+              setTimeout(function(){ typeWriter(id, ar); }, 50);
+              // isBackspacing = false;
+            }
+            // a = (a + 1) % ar.length; //Moves to next position in array, always looping back to 0
+            // setTimeout(function(){ typeWriter(id, ar); }, 50);
+          }
+        }
+      }
+      else{
+        console.log("2");
+        document.getElementById("banner-main").innerHTML= textArray[0];
+        // document.getElementById("button").style.display="block";
+        return;
+      }
+    }
+      // values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
+    }
+
+  </script>
+
+</html>

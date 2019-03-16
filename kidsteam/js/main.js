@@ -1,6 +1,8 @@
 
 
 window.onload = function() {
+
+	
 	var valueSecond = 0;
 	var valueMinute = 0;
 

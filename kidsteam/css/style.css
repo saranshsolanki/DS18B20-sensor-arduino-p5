@@ -1,0 +1,391 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #564873;
+}
+canvas {
+  display: block;
+  padding-left: 165px;
+  padding-right: 100px;
+}
+
+h1{
+  font-size: 32px;
+  margin-top: 0px;
+}
+
+
+.container{
+  width: 80%;
+  margin: auto;
+/*  margin-left: 150px;*/
+}
+ /*style="width:180px; height: 40px;  background: white;color: black;border-radius: 2px;text-align: center;padding-top: 16px;font-size: 18px; font-family: 'Quicksand'; font-weight: bold; cursor: pointer;"*/
+
+.primary-button {
+  -moz-box-shadow: 8px 8px 0px 0px #F78744;
+  -webkit-box-shadow: 8px 8px 0px 0px #F78744;
+  box-shadow: 8px 8px 0px 0px #F78744;
+  background-color:#F5B051;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  /*border:1px solid #F5B051;*/
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:'Bree Serif';
+  font-size:24px;
+  text-transform: uppercase;
+  font-weight:bold;
+  padding:12px 44px;
+  text-decoration:none;
+  /*text-shadow:0px 1px 0px #528ecc;*/
+  width: 280px;
+  height: 40px;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: bold;
+}
+
+.primary-button:hover {
+  background-color:#F8AD47;
+}
+.primary-button:active {
+  position:relative;
+  top:4px;
+  animation-duration:2s;
+  /*left: 4px;*/
+}
+
+
+.island-button {
+  -moz-box-shadow: 6px 6px 0px 0px #F78744;
+  -webkit-box-shadow: 6px 6px 0px 0px #F78744;
+  box-shadow: 6px 6px 0px 0px #F78744;
+  background-color:#F5B051;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+  /*border:1px solid #F5B051;*/
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:'Bree Serif';
+  font-size:20px;
+  text-transform: uppercase;
+  font-weight:bold;
+  padding:12px 44px;
+  text-decoration:none;
+  /*text-shadow:0px 1px 0px #528ecc;*/
+  width: 100px;
+  height: 28px;
+  text-align: center;
+  padding-top: 16px;
+  font-weight: bold;
+  z-index: 100;
+}
+
+.island-button:hover {
+  background-color:#F8AD47;
+}
+.island-button:active {
+  position:relative;
+  top:4px;
+  animation-duration:2s;
+  /*left: 4px;*/
+}
+
+.island_label{
+  color:#ffffff;
+  font-family:'Bree Serif';
+  font-size:20px;
+  text-transform: uppercase;
+  font-weight:bold;
+  letter-spacing: 3px;
+  width: 150px;
+  text-align: center;
+  height: 42px;
+  padding-top: 14px;
+  font-weight: bold;
+  background-color:#03C0F1;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
+}
+
+#inactive {
+  -moz-box-shadow: 6px 6px 0px 0px #04B3E0;
+  -webkit-box-shadow: 6px 6px 0px 0px #04B3E0;
+  box-shadow: 6px 6px 0px 0px #04B3E0;
+  background-color:#03C0F1;
+}
+
+/*.inactive_island{
+  -moz-box-shadow: 6px 6px 0px 0px #04B3E0;
+  -webkit-box-shadow: 6px 6px 0px 0px #04B3E0;
+  box-shadow: 6px 6px 0px 0px #04B3E0;
+  background-color:#03C0F1;
+}*/
+
+
+.cursor::after {
+  content:'';
+  display:inline-block;
+  margin-left:3px;
+  background-color:#F5B051;
+  animation-name:blink;
+  animation-duration:1s;
+  animation-iteration-count: infinite;
+}
+h1.cursor::after {
+
+  height:24px;
+  width:13px;
+}
+p.cursor::after {
+  height:18px;
+  width:4px;
+}
+
+@keyframes blink {
+  0% {
+    opacity:1;
+  }
+  49% {
+    opacity:1;
+  }
+  50% {
+    opacity:0;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  letter-spacing: 3px;
+}
+
+
+
+.pulse-loader {
+	height: 50px;
+	margin: auto 0;
+	position: relative;
+	width: 50px;
+	position: absolute;
+	left: 715px;
+	top: 250px;
+}
+.pulse-loader:before, .pulse-loader:after {
+	animation: pulse-loader infinite 2s;
+	box-shadow: 0 0 5px #fff;
+	border-radius: 50%;
+	border: 3px solid #fff;
+	content: '';
+	display: block;
+	height: 100%;
+	left: -3px;
+	opacity: 0;
+	position: absolute;
+	top: -3px;
+	width: 100%;
+}
+.pulse-loader:after {
+	animation-delay: 1s;
+}
+@keyframes pulse-loader {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: white;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.checkmark {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	display: block;
+	stroke-width: 2;
+	stroke: black;
+	stroke-miterlimit: 10;
+	margin: 10% auto;
+	box-shadow: inset 0px 0px 0px white;
+	animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+	left: 715px;
+	top: 100px;
+	position: absolute;
+}
+
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  0%, 100% {
+    transform: none;
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px white;
+  }
+}
+
+
+.clockContainer{
+position: absolute;
+  top:660px; left:20px;  
+  width: 30px;
+  height: 30px;
+  border: 1px solid transparent;
+}
+
+.clockOut{
+  width: 80%;
+  height: 80%;
+  border: 2px solid white;
+  border-radius: 50%;
+  position: absolute;
+  bottom:0;
+  margin-left: auto; margin-right: auto; left:0; right:0;
+}
+
+.clockTop{
+  border-top: 2px solid white;
+   border-right: 2px solid white;
+   border-left: 2px solid white;
+  width: 8px;
+  top: -4px;
+  position: absolute;
+  margin-left: auto; margin-right: auto; left:0; right:0;
+  height: 7px;
+  border-radius: 3px;
+}
+
+.clockNeedle{
+  width: 2px;
+  height: 8px;
+  background: white;
+  position: absolute;
+  top: 15%;
+  left: 11px;
+  transform-origin:50% 100%;
+  -webkit-transform-origin:50% 100%;
+  -webkit-animation: needleAnimation 3s linear 0s 5; 
+  animation: needleAnimation 3s linear 0s 5;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes needleAnimation {
+    from {
+    	
+    }
+    to {
+    	-webkit-transform:rotate(360deg); 
+	}
+}
+
+/* Standard syntax */
+@keyframes needleAnimation {
+   from {
+    	
+    }
+    to {
+    	-ms-transform:rotate(360deg); 
+    	-moz-transform:rotate(360deg); 
+    	-webkit-transform:rotate(360deg); 
+	}
+}
+
+.path {
+  stroke-dasharray: 18;
+  stroke-dashoffset: 100;
+
+  animation: dash 10s linear infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#banner-main{
+  width: 50%; 
+  position: absolute;
+  left:370px;
+  background-color: #F5B051; 
+  height: 60px; 
+  top: 50px;
+  border-radius: 4px; 
+  /*border: solid 4px #F78744 ;*/
+  font-family: 'Bree Serif'; 
+  font-size: 24px; 
+  text-align: center;
+  color: white;
+  padding-top: 20px;
+   -webkit-box-shadow:inset 0px 0px 0px 5px #F78744;
+    -moz-box-shadow:inset 0px 0px 0px 5px #F78744;
+    box-shadow:inset 0px 0px 0px 5px #F78744;
+}
+
+#banner-main h1{
+  font-size: 24px;
+  margin-left: 0px
+}
+
+
+.island_explore{
+        align-self: flex-end;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        /*background-color: #F44336;*/
+        /*height: 200px;*/
+        margin: 0 auto 0 auto;
+        transform-origin: center;
+        width: 230px;
+    }
+.bounce-2 {
+    animation-name: bounce-2;
+    animation-timing-function: ease;
+}
+@keyframes bounce-2 {
+    0%   { transform: scale(1.0); }
+    50%  { transform: scale(1.1); }
+    100% { transform: scale(1.0); }
+}

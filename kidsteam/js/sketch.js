@@ -6,20 +6,22 @@ var finalData;
 const Y_AXIS = 2;
 
 
-var minTemperature = 0;
+var minTemperature = 10;
 var maxTemperature = 50;
 var currentTemp = 0;
 var currentTime = 0;
 var tempInc =0;
 var maxHeight = 683;
-var minHeight = 92;
+var minHeight = 200;
+var windowHeight = 200;
 
+var timeIsHalf = false;
 function setup() {
   frameRate(10);
   var c1 = color(255, 0, 0);
   var c2 = color(0, 0, 255);
 
-  windowWidth = 1180;
+  windowWidth = 1165;
   setGradient(0,0,windowWidth,windowHeight,c1,c2,2)
 
   createCanvas(windowWidth, windowHeight);
@@ -30,7 +32,7 @@ function setup() {
 
   currentTemp = 0;
   // timeInc = windowWidth/(5*60*10);
-  timeInc = windowWidth/(5*60*10);
+  timeInc = windowWidth/(2*60*10);
 
 
   var currentTempOld = 0;
@@ -58,8 +60,6 @@ function setup() {
   currentTime = 0;
 
 
-
-
   //set up communication port
   serial = new p5.SerialPort();       // make a new instance of the serialport library
   serial.on('list', printList);  // set a callback function for the serialport list event
@@ -78,11 +78,12 @@ function draw() {
   // console.log(tempVal1);
  
   finalData = Number.parseFloat(finalData).toFixed(2);
+  // finalData =20;
 
   var newTemp = maxHeight - (finalData - minTemperature)*(maxHeight - minHeight)/(maxTemperature - minTemperature);
 
-  stroke(0,255,0); //stroke color
-  strokeWeight(1); //stroke wider
+  stroke(234, 140, 83, 200); //stroke color
+  strokeWeight(4); //stroke wider
   line(currentTime,  currentTemp, currentTime+timeInc, newTemp);
 
   var value = windowHeight- newTemp + "px";
@@ -99,19 +100,31 @@ function draw() {
     }
   }
 
-
   // draw fill below
-  stroke(0,255,0,30);
-  strokeWeight(1);
-  line(currentTime,currentTemp,currentTime+timeInc, maxHeight); 
+  // stroke(0,255,0,30);
+  // strokeWeight(1);
+  // line(currentTime,currentTemp,currentTime+timeInc, maxHeight); 
 
+  fill(234, 140, 83, 120);
+  stroke(234, 140, 83, 3);
+  rect(currentTime,currentTemp,timeInc, maxHeight - newTemp);
 
   currentTemp = newTemp;
   currentTime = currentTime+timeInc;
 
+  if (currentTime>582){
+    console.log("here");
+    timeIsHalf = true;
+  }
+
+  if(timeIsHalf == true){    
+    
+  }
+
   // stop after maxwidth
   if(currentTime>windowWidth){
-    window.location.href = "spoon.html";
+    var hash = (window.location.hash); 
+    window.location.href = "success.html" + hash;
     sessionStorage.setItem("steelTemperature", "true");
   }
   else{
