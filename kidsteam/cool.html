@@ -1,0 +1,94 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html><head>
+    <script src="js/p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
+    
+    <script type='text/javascript' > 
+      var myFunctionTag = false; 
+      var finalData = 0;
+    </script>
+
+    <script src="js/p5.dom.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/cool.js"></script>
+    <script src="js/p5.sound.min.js"></script>
+    <script src="js/p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <style type="text/css">
+      .p5Canvas{
+        display: none !important;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <!-- <div style="position:absolute;margin: auto; width: 80%;height: 100%; background-color: #564873;z-index: 100 ">
+
+        <svg class="checkmark" id="checkMark"  style="left: 550px;top: 200px" sxmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+
+        <div>
+          
+        </div>
+      </div> -->
+
+
+      <div style="float: left;width: 50%;margin-top:8%;">
+        <div class="text" id="largeHeader"style=" font-size: 60px;color: white; font-family:'Bree Serif'  ">
+          <p >
+            <span id="subtitle" style="font-size: 30px;font-family: 'Quicksand';color: #EA8C53; font-weight: bold ">Let us wait!</span><br>
+            <span id="title">The thermometer needs to come back to room temperature.</span> 
+          </p>
+        </div>
+
+        <div id="button" style="width: 100%; padding-top: 50px;display: none">
+          <a href="explore.html" id ="button_link"><div class="primary-button" id= "button">CONTINUE</div></a>
+        </div>
+      </div>
+
+      <div style="width: 50%">
+        <div id="bar" style="position:absolute; height: 400px; top:190px;left: 1000px; width: 140px; 
+        background-image: linear-gradient(rgba(248,105,73,255), rgba(86, 72,115,200))">
+        </div>
+
+        <div style="height: 1px; background-color: white; width: 150px; position: absolute; top: 590px; left: 995px;opacity: 0.2">
+          
+        </div>
+        <div style=" position: absolute; top: 600px; left: 1000px; font-size: 12px; font-weight: bold;font-family: 'Quicksand'; color: white; letter-spacing: 2px; text-align: center; opacity: 0.5" >
+            Room Temperature <br>
+            <span id = "roomTemp"></span>
+        </div>
+
+        <div id ="currentTemp" style="height: 2px; background-color: white; width: 150px; position: absolute; top: 500px; left: 995px">
+        </div>
+
+        <div id = "currentTempLabel"style=" position: absolute; top: 600px; left: 960px; font-size: 12px; font-weight: bold;font-family: 'Quicksand'; color: white; letter-spacing: 2px; text-align: center; opacity: 0.5" >
+            Temperature of Thermometer <br>
+            
+        </div>
+
+      </div>
+      <!-- <img id="tick_image" src="img/wood_island.png" style="margin-top:10%;width: 50%"> -->
+
+      
+    </div>
+
+
+    
+    
+  </body>
+  <script type="text/javascript">
+    roomTemperature = sessionStorage.getItem("roomTemp");
+    document.getElementById('roomTemp').innerHTML = Math.round(roomTemperature)  + '°C';
+  </script>
+
+</html>

@@ -14,8 +14,9 @@ var tempInc =0;
 var maxHeight = 683;
 var minHeight = 200;
 var windowHeight = 200;
-
 var timeIsHalf = false;
+
+
 function setup() {
   frameRate(10);
   var c1 = color(255, 0, 0);
@@ -23,42 +24,89 @@ function setup() {
 
   windowWidth = 1165;
   setGradient(0,0,windowWidth,windowHeight,c1,c2,2)
-
   createCanvas(windowWidth, windowHeight);
   noStroke();
   smooth();
-  // background(color(0));
-  // fill(color(255))
 
-  currentTemp = 0;
+
+  currentTemp = 655;
   // timeInc = windowWidth/(5*60*10);
   timeInc = windowWidth/(2*60*10);
+  currentTime = 2*timeInc;
 
-
-  var currentTempOld = 0;
+  var currentTempOld = 655;
 
   if(sessionStorage.getItem("steelTemperature") == 'true'){
+    console.log("steel");
 
     while(currentTime < windowWidth){
 
-      var newTempOld = sessionStorage.getItem(currentTime);
-      stroke(253,202,64); //stroke color
-      strokeWeight(1); //stroke wider
+     var newTempOld = sessionStorage.getItem("steel:"+currentTime);
+      console.log("here");
+      console.log(newTempOld);
+      stroke(0,204,255); //stroke color
+      strokeWeight(4); //stroke wider
       line(currentTime,  currentTempOld, currentTime+timeInc, newTempOld);
 
-      stroke(253,202,64,30);
+      stroke(0,204,255,30);
       strokeWeight(1);
       line(currentTime,currentTempOld,currentTime+timeInc, maxHeight); 
 
       currentTempOld = newTempOld;
       currentTime = currentTime + timeInc;
-      sessionStorage.setItem("steelTemperature", 'false');    
+      // sessionStorage.setItem("steelTemperature", 'false');    
     }
+    currentTime = 2*timeInc;
   }
   
-  
-  currentTime = 0;
+  if(sessionStorage.getItem("plasticTemperature") == 'true'){
+    console.log("plastic");
 
+    while(currentTime < windowWidth){
+
+      var newTempOld = sessionStorage.getItem("plastic:"+currentTime);
+      console.log("here");
+      console.log(newTempOld);
+      stroke(186,217,68); //stroke color
+      strokeWeight(4); //stroke wider
+      line(currentTime,  currentTempOld, currentTime+timeInc, newTempOld);
+
+      stroke(186,217,68,30);
+      strokeWeight(4);
+      line(currentTime,currentTempOld,currentTime+timeInc, maxHeight); 
+
+      currentTempOld = newTempOld;
+      currentTime = currentTime + timeInc;
+      // sessionStorage.setItem("plasticTemperature", 'false');    
+    }
+    currentTime = 2*timeInc;
+  }
+
+  if(sessionStorage.getItem("woodTemperature") == 'true'){
+    console.log("wood");
+    while(currentTime < windowWidth){
+
+      // hashItem+":"+currentTime
+      var newTempOld = sessionStorage.getItem("wood:"+currentTime);
+      console.log("here");
+      console.log(newTempOld);
+
+      stroke(249,105,73); //stroke color
+      strokeWeight(4); //stroke wider
+      line(currentTime, currentTempOld, currentTime+timeInc, newTempOld);
+
+      stroke(249,105,73,30);
+      strokeWeight(4);
+      line(currentTime,currentTempOld,currentTime+timeInc, maxHeight); 
+
+      currentTempOld = newTempOld;
+      currentTime = currentTime + timeInc;
+      // sessionStorage.setItem("woodTemperature", 'false'
+    }
+    currentTime = 2*timeInc;
+  }
+
+  currentTime = 2*timeInc;
 
   //set up communication port
   serial = new p5.SerialPort();       // make a new instance of the serialport library
@@ -76,38 +124,84 @@ function draw() {
   // background(255);
   // console.log("tempVal1");
   // console.log(tempVal1);
- 
+  var hash = (window.location.hash); 
+  var hashItem = hash.substring(1);
+
   finalData = Number.parseFloat(finalData).toFixed(2);
   // finalData =20;
 
   var newTemp = maxHeight - (finalData - minTemperature)*(maxHeight - minHeight)/(maxTemperature - minTemperature);
 
-  stroke(234, 140, 83, 200); //stroke color
-  strokeWeight(4); //stroke wider
-  line(currentTime,  currentTemp, currentTime+timeInc, newTemp);
+  if(hashItem =="steel"){
+    stroke(0,204,255, 200); //stroke color
+    strokeWeight(4); //stroke wider
+    line(currentTime,  currentTemp, currentTime+timeInc, newTemp);
 
-  var value = windowHeight- newTemp + "px";
-  if(document.getElementById('line') != null){
-    var dottedLine = document.getElementById('line');
-    // console.log((windowHeight- newTemp).isFinite());
+    var value = windowHeight- newTemp + "px";
+    if(document.getElementById('line') != null){
+      var dottedLine = document.getElementById('line');
+      // console.log((windowHeight- newTemp).isFinite());
 
-    if(isFinite(newTemp) == true){
-      // console.log("here");
-      dottedLine.x1.baseVal.value = 160;
-      dottedLine.y1.baseVal.value = parseFloat( newTemp);
-      dottedLine.x2.baseVal.value = 165+currentTime+timeInc;
-      dottedLine.y2.baseVal.value = parseFloat(newTemp);
+      if(isFinite(newTemp) == true){
+        // console.log("here");
+        dottedLine.x1.baseVal.value = 160;
+        dottedLine.y1.baseVal.value = parseFloat( newTemp);
+        dottedLine.x2.baseVal.value = 165+currentTime+timeInc;
+        dottedLine.y2.baseVal.value = parseFloat(newTemp);
+      }
     }
+    fill(0,204,255, 120);
+    stroke(0,204,255, 3);
+    rect(currentTime,currentTemp,timeInc, maxHeight - newTemp);
   }
 
-  // draw fill below
-  // stroke(0,255,0,30);
-  // strokeWeight(1);
-  // line(currentTime,currentTemp,currentTime+timeInc, maxHeight); 
+  if(hashItem =="plastic"){
+    stroke(186,217,68, 200); //stroke color
+    strokeWeight(4); //stroke wider
+    line(currentTime,  currentTemp, currentTime+timeInc, newTemp);
 
-  fill(234, 140, 83, 120);
-  stroke(234, 140, 83, 3);
-  rect(currentTime,currentTemp,timeInc, maxHeight - newTemp);
+    var value = windowHeight- newTemp + "px";
+    if(document.getElementById('line') != null){
+      var dottedLine = document.getElementById('line');
+      // console.log((windowHeight- newTemp).isFinite());
+
+      if(isFinite(newTemp) == true){
+        // console.log("here");
+        dottedLine.x1.baseVal.value = 160;
+        dottedLine.y1.baseVal.value = parseFloat( newTemp);
+        dottedLine.x2.baseVal.value = 165+currentTime+timeInc;
+        dottedLine.y2.baseVal.value = parseFloat(newTemp);
+      }
+    }
+    fill(186,217,68, 120);
+    stroke(186,217,68, 3);
+    rect(currentTime,currentTemp,timeInc, maxHeight - newTemp);
+  }
+
+  if(hashItem == "wood"){
+    stroke(249,105,73, 200); //stroke color
+    strokeWeight(4); //stroke wider
+    line(currentTime,  currentTemp, currentTime+timeInc, newTemp);
+
+    var value = windowHeight- newTemp + "px";
+    if(document.getElementById('line') != null){
+      var dottedLine = document.getElementById('line');
+      // console.log((windowHeight- newTemp).isFinite());
+
+      if(isFinite(newTemp) == true){
+        // console.log("here");
+        dottedLine.x1.baseVal.value = 160;
+        dottedLine.y1.baseVal.value = parseFloat( newTemp);
+        dottedLine.x2.baseVal.value = 165+currentTime+timeInc;
+        dottedLine.y2.baseVal.value = parseFloat(newTemp);
+      }
+    }
+    fill(249,105,73, 120);
+    stroke(249,105,73, 3);
+    rect(currentTime,currentTemp,timeInc, maxHeight - newTemp);
+  }
+
+  
 
   currentTemp = newTemp;
   currentTime = currentTime+timeInc;
@@ -121,14 +215,22 @@ function draw() {
     
   }
 
+  var obj = {
+    item: hashItem,
+    currentTime: currentTime,
+  }
+
+  var objJSON = JSON.stringify(obj);
+
+
   // stop after maxwidth
   if(currentTime>windowWidth){
-    var hash = (window.location.hash); 
+    
     window.location.href = "success.html" + hash;
-    sessionStorage.setItem("steelTemperature", "true");
+    sessionStorage.setItem(hashItem + "Temperature", "true");
   }
   else{
-    sessionStorage.setItem(currentTime, currentTemp);
+    sessionStorage.setItem(hashItem+":"+currentTime, currentTemp);
     numberOfReading++;
   }
 }

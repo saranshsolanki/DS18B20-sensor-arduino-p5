@@ -22,7 +22,7 @@
 
     <script src="js/p5.dom.min.js"></script>
      <script src="js/main.js"></script>
-     <script src="js/sketch.js"></script>
+     <!-- <script src="js/sketch.js"></script> -->
     <script src="js/p5.sound.min.js"></script>
     <script src="js/p5.serialport.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -33,6 +33,7 @@
       }
       html, body {
         /* The image used */
+        background-color: #00C5F6;
         background-image: url("img/ocean.png");
 
         /* Full height */
@@ -53,9 +54,9 @@
     <div>
       <img class="island_explore bounce-2" id ="wood_island" src="img/wood_island_explore.png" style="display:none; width: 230px;position: absolute;top: 464px;left: 97px;">
 
-      <img class="island_explore bounce-2" id ="plastic_island" src="img/plastic_island_explore.png" style="; width: 225px;position: absolute;top: 115px;left: 704px;">
+      <img class="island_explore bounce-2" id ="plastic_island" src="img/plastic_island_explore.png" style="display:none; width: 225px;position: absolute;top: 115px;left: 704px;">
 
-
+      <img class="island_explore bounce-2" id ="steel_island" src="img/steel_island_explore.png" style="; z-index: 100;width: 240px;position: absolute;top: 476px;left: 1060px;">
       
       <!-- <img id ="wood_island" src="img/wood_island_explore.png" style="width: 230px;position: absolute;top: 464px;left: 97px;">
       <img id ="wood_island" src="img/wood_island_explore.png" style="width: 230px;position: absolute;top: 464px;left: 97px;">
@@ -63,7 +64,7 @@
     </div>
     <div class="container" style="">
       <!-- take 12 readings -->
-      <div id="banner-main" style=" ">
+      <div id="banner-explore" style=" ">
         <h1 class="cursor"></h1>
           <!-- Tiffanie's questions come here. -->
       </div>
@@ -75,7 +76,7 @@
         </div>
 
         <div id="button" class="wood-button" style="position:absolute; top: 570px; left: 350px; z-index: 100 ">
-          <a href="instructions.html#wood"><div class="island-button" >Wood</div></a>
+          <a href="instructions.html#wood"><div class="island-button">Wood</div></a>
         </div>
 
         <div id="button" class="plastic-button" style="position:absolute; top: 200px; left: 490px; z-index: 100  ; ">
@@ -90,9 +91,7 @@
         <!-- <div id="draw0"></div> -->
         <div id="path1" style="width: 640px;margin-top: 120px;margin-left:50px;display: none;">
             <svg width="535px" height="161px" viewBox="0 0 525 161" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
-                <title>path 1</title>
-                <desc>Created with Sketch.</desc>
+                
                 <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-dasharray="11.51999954223629,19.19999893188469" stroke-linecap="round" stroke-linejoin="round">
                     <g id="Desktop-HD-Copy-4" transform="translate(-349.000000, -434.000000)" stroke="#FFFFFF" stroke-width="11.5199998">
                         <path class="path" d="M355,589 C386.583581,505.469364 436.68161,456.664977 505.294088,442.586836 C608.212805,421.469626 638.288687,536.304476 716.301595,545.604796 C768.3102,551.80501 823.209668,532.395635 881,487.376673" id="path-1"></path>
@@ -101,14 +100,23 @@
             </svg>
         </div>
         
+        <div id="path2" style="width: 590px;top: 240px;left:633px;display: none;position: absolute;">
+          <svg width="634px" height="455px" viewBox="0 0 634 455" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              
+             
+              <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round" stroke-linecap="round">
+                  <path class="path" d="M463.50767,241.235708 C449.921618,215.082854 424.752077,202.006427 387.999046,202.006427 C300.740407,202.006427 328.437678,335 207.326308,335 C126.585395,335 82.4766254,263.666667 75,121" id="Path-2" stroke="#FFFFFF" stroke-width="11.52"></path>
+              </g>
+          </svg>
+        </div>
 
-        <div class="island_label" style="position:absolute; top: 570px; left: 350px;">
+        <div class="island_label" id="island_label"  style="position:absolute; top: 570px; left: 350px;">
           Wood
         </div>
-        <div class="island_label" style="position:absolute; top: 200px; left: 490px;">
+        <div class="island_label" id="island_label"  style="position:absolute; top: 200px; left: 490px;">
           Plastic
         </div>
-        <div class="island_label" style="position:absolute; top: 580px; left: 840px;">
+        <div class="island_label" id="island_label" style="position:absolute; top: 580px; left: 840px;">
           Steel
         </div>
 
@@ -127,21 +135,79 @@
      var hash = (window.location.hash);
      console.log(hash);
 
+     document.getElementsByClassName('island_label')[0]
+      .addEventListener('click', function (event) {
+        document.getElementById("banner-explore").style.background = '#F96949';
+        document.getElementById("banner-explore").style.boxShadow = '#E1593C';
+        
+        var timer = setTimeout(function(){ 
+          document.getElementById("banner-explore").style.background = '#00CCFF';
+          document.getElementById("banner-explore").style.borderColor = '#00B7E5';
+        }, 4000);
+      });
+
+      document.getElementsByClassName('island_label')[1]
+      .addEventListener('click', function (event) {
+        document.getElementById("banner-explore").style.background = '#F96949';
+        document.getElementById("banner-explore").style.borderColor = '#E1593C';
+
+        var timer = setTimeout(function(){ 
+          document.getElementById("banner-explore").style.background = '#00CCFF';
+          document.getElementById("banner-explore").style.borderColor = '#00B7E5';
+        }, 4000);
+      });
+
+      document.getElementsByClassName('island_label')[2]
+      .addEventListener('click', function (event) {
+        document.getElementById("banner-explore").style.background = '#F96949';
+        document.getElementById("banner-explore").style.borderColor = '#E1593C';
+        
+        var timer = setTimeout(function(){ 
+          document.getElementById("banner-explore").style.background = '#00CCFF';
+          document.getElementById("banner-explore").style.borderColor = '#00B7E5';
+        }, 4000);
+      });
+
+
      if(hash == '' || hash == '#wood'){
+      sessionStorage.setItem("plasticTemperature", 'false'); 
+      sessionStorage.setItem("woodTemperature", 'false'); 
+      sessionStorage.setItem("steelTemperature", 'false'); 
+      document.getElementById('steel_island').style.display = 'none';
       document.getElementById('wood_island').style.display = 'block';
+      document.getElementById('plastic_island').style.display = 'none';
       document.body.style.backgroundImage = "url('img/ocean-wood.png')";
       document.getElementsByClassName('plastic-button')[0].style.display = 'none';
       document.getElementsByClassName('steel-button')[0].style.display = 'none';
+      document.getElementById('path1').style.display = 'none';
 
      }
      if(hash == '#plastic'){
       document.getElementById('wood_island').style.display = 'none';
+       document.getElementById('plastic_island').style.display = 'block';
+       document.getElementById('steel_island').style.display = 'none';
+
       document.body.style.backgroundImage = "url('img/ocean-plastic.png')";
       document.getElementById('path1').style.display = 'block';
 
       document.getElementsByClassName('wood-button')[0].style.display = 'none';
       document.getElementsByClassName('steel-button')[0].style.display = 'none';
       document.getElementsByClassName('plastic-button')[0].style.display = 'block';
+
+     }
+
+     if(hash == '#steel'){
+      document.getElementById('wood_island').style.display = 'none';
+      document.getElementById('plastic_island').style.display = 'none';
+      document.getElementById('steel_island').style.display = 'block';
+      document.getElementById('path1').style.display = 'none';
+
+      document.body.style.backgroundImage = "url('img/ocean-steel.png')";
+      document.getElementById('path2').style.display = 'block';
+
+      document.getElementsByClassName('wood-button')[0].style.display = 'none';
+      document.getElementsByClassName('steel-button')[0].style.display = 'block';
+      document.getElementsByClassName('plastic-button')[0].style.display = 'none';
 
      }
   </script>
@@ -182,7 +248,7 @@
         speedBackspace = 5; //Backspace Speed
 
     //Run the loop
-    typeWriter("banner-main", textArray);
+    typeWriter("banner-explore", textArray);
 
     function typeWriter(id, ar) {
 
@@ -259,7 +325,7 @@
       }
       else{
         console.log("2");
-        document.getElementById("banner-main").innerHTML= textArray[0];
+        document.getElementById("banner-explore").innerHTML= textArray[0];
         // document.getElementById("button").style.display="block";
         return;
       }
@@ -268,5 +334,7 @@
     }
 
   </script>
+
+
 
 </html>

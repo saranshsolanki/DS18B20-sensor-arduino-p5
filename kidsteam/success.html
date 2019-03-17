@@ -36,17 +36,17 @@
         <div class="text" id="largeHeader"style=" font-size: 60px;color: white; font-family:'Bree Serif'  ">
           <p id="title">
             <span style="font-size: 30px;font-family: 'Quicksand';color: #EA8C53; font-weight: bold ">Well Done!</span><br>
-            You successfully explored the <span> Wood </span> Island. 
+            You successfully explored the <span id="item"> Wood </span> Island. 
           </p>
         </div>
 
         <div id="button" style="width: 100%; padding-top: 50px;">
-          <a href="explore.html" id ="button_link"><div class="primary-button" id= "button">CONTINUE</div></a>
+          <a href="cool.html" id ="button_link"><div class="primary-button" id= "button">CONTINUE</div></a>
         </div>
       </div>
 
       
-      <img src="img/wood_island.png" style="margin-top:10%;width: 60%">
+      <img id="tick_image" src="img/wood_island.png" style="margin-top:10%;width: 60%">
 
       
     </div>
@@ -59,19 +59,21 @@
     var hash = (window.location.hash);
     if(hash == '#wood'){
       document.getElementById("button_link").href += '#plastic'; 
+      document.getElementById("item").innerHTML = 'Wood'; 
+      document.getElementById("tick_image").src = "img/wood_island.png";
     }
     if(hash == '#plastic'){
+
       document.getElementById("button_link").href += '#steel'; 
+      document.getElementById("item").innerHTML = 'Plastic'; 
+      document.getElementById("tick_image").src = "img/plastic_island.png";
+    }
+    if(hash == '#steel'){
+
+      document.getElementById("button_link").href += '#steel'; 
+      document.getElementById("item").innerHTML = 'Steel'; 
+      document.getElementById("tick_image").src ="img/steel_island.png";
     }
   </script>
-  <!-- auto load script -->
-  <!-- <script type="text/javascript">
-     window.setTimeout(function(){
 
-        // Move to a new location or you can do something else
-        window.location.href = "instructions2.html";
-
-    }, 6000);
-
-  </script> -->
 </html>
