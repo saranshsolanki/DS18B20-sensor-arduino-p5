@@ -1,0 +1,313 @@
+<!-- the html wrapper for p5.js sketch -->
+<!-- the main sketch is written is sketch.js  -->
+
+<!DOCTYPE html><html>
+
+<head>
+    <script src="js/p5.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+QingKe+HuangYou" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
+    
+
+    <script type='text/javascript' > 
+	  var showtemp = false; 
+	  var buttonClicked = '';
+    
+    var numberOfReading = 0;
+
+	</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="js/p5.dom.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="sketch.js"></script> -->
+    <script src="js/p5.sound.min.js"></script>
+    <script src="js/p5.serialport.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="utf-8">
+    <script src="js/html2canvas.min.js"></script>
+
+</head>
+<body>
+
+  <script src="js/sketch.js"></script>
+
+  <div id="banner-main" style=" ">
+   
+      Well Done! Experiment is complete.
+  </div>
+
+  <div id="bar" style="margin-top:183px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      50°C
+    </p>
+  </div>
+
+  <div id="line40" style="height: 2px;position: absolute;width: 81.5%;margin-left: 156px; top:200px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:301px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      40°C
+    </p>
+  </div>
+
+  <div id="line30" style="height: 2px;position: absolute;width: 81.5%;margin-left: 156px; top:320px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:419px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      30°C
+    </p>
+  </div>
+
+  <div id="line20" style="height: 2px;position: absolute;width: 81.5%;margin-left: 156px; top:440px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:537px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      20°C
+    </p>
+  </div>
+
+  <div id="line10" style="height: 2px;position: absolute;width: 81.5%;margin-left: 156px; top:560px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:655px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      10°C
+    </p>
+  </div>
+
+   <div id="line0" style="height: 2px;position: absolute;width: 81.5%;margin-left: 156px; top:682px;
+    border-top:1px solid rgba(255, 255, 255, .2);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="lineTime" style="height: 2px;position: absolute;width: 83%;margin-left: 136px; top:680px;
+    border-top:4px solid rgba(255, 255, 255);
+    z-index: 100;
+    ;">
+      
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 170px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      0 min
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 452px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      30 sec
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 734px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      1 min
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 1016px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      1 min 30 sec
+    </p>
+  </div>
+
+  <div id="bar" style="margin-top:680px;  position: absolute; left: 1300px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
+    <p>
+      2 min
+    </p>
+  </div>
+
+
+
+  <div id="bar" style="height: 483px; width: 20px;margin-top:200px;margin-bottom:90px; background: red; position: absolute; left: 136px;
+  background-image: linear-gradient(rgba(248,105,73,255), rgba(92, 72,115,255))">
+
+  </div>
+
+  <svg height="100%" width="100%" style="position: absolute;">
+    <line id="line" x1="150" y1="150" x2="150" y2="150" style="stroke:rgb(255,255,255, 0.5);stroke-width:1; " stroke-dasharray="4"  />
+    Sorry, your browser does not support inline SVG.
+  </svg>
+
+
+  <script type="text/javascript">
+
+    window.onload = function () {
+      var i = 0,
+          a = 0,
+          queue = 0,
+          isBackspacing = false,
+          isParagraph = false;
+
+      // Typerwrite text content. Use a pipe to indicate the start of the second line "|". 
+      var hash = (window.location.hash);
+      if(hash == '#wood'){
+        var textArray = [
+          "What are you noticing?", 
+          "Did it get as hot as you thought it would?", 
+        ];
+      }
+      if (hash == '#steel'){
+        var textArray = [
+          "What are you noticing?", 
+          "Is your hypothesis correct?", 
+        ];
+      }
+      if (hash == '#plastic'){
+        var textArray = [
+          "What are you noticing?", 
+          "Is it heating up at a faster or slower rate than the wood spoon?"
+        ];
+      }
+      if (hash == '#exit'){
+        var textArray = [
+          "Well Done! Experiment is complete.",
+          "Print this report."
+        ];
+      }
+      
+
+      // Speed (in milliseconds) of typing.
+      var speedForward = 50, //Typing Speed
+          speedWait = 60000, // Wait between typing and backspacing
+          speedBetweenLines = 2000, //Wait between first and second lines
+          speedBackspace = 5; //Backspace Speed
+
+      //Run the loop
+      typeWriter("banner-main", textArray);
+
+      function typeWriter(id, ar) {
+
+        var element = $("#" + id),
+            aString = ar[a],
+            eHeader = element.children("h1"), //Header element
+            eParagraph = element.children("p"); //Subheader element
+        
+        if(queue<3){
+                // Determine if animation should be typing or backspacing
+          if (!isBackspacing) {
+            
+            // If full string hasn't yet been typed out, continue typing
+            if (i < aString.length) {
+              
+              // If character about to be typed is a pipe, switch to second line and continue.
+              if (aString.charAt(i) == "|") {
+                isParagraph = true;
+                eHeader.removeClass("cursor");
+                eParagraph.addClass("cursor");
+                i++;
+                setTimeout(function(){ typeWriter(id, ar); }, speedBetweenLines);
+                
+              // If character isn't a pipe, continue typing.
+              } else {
+                // Type header or subheader depending on whether pipe has been detected
+                if (!isParagraph) {
+                  eHeader.text(eHeader.text() + aString.charAt(i));
+                } else {
+                  eParagraph.text(eParagraph.text() + aString.charAt(i));
+                }
+                i++;
+                setTimeout(function(){ typeWriter(id, ar); }, speedForward);
+              }
+              
+            // If full string has been typed, switch to backspace mode.
+            } else if (i == aString.length) {
+              isBackspacing = true;
+              queue = queue+1;
+              setTimeout(function(){ typeWriter(id, ar); }, speedWait);
+            }
+
+
+          // If backspacing is enabled
+          } else {
+            // If either the header or the paragraph still has text, continue backspacing
+            if (eHeader.text().length > 0 || eParagraph.text().length > 0) {
+              
+              // If paragraph still has text, continue erasing, otherwise switch to the header.
+              if (eParagraph.text().length > 0) {
+                eParagraph.text(eParagraph.text().substring(0, eParagraph.text().length - 1));
+              } else if (eHeader.text().length > 0) {
+                eParagraph.removeClass("cursor");
+                eHeader.addClass("cursor");
+                eHeader.text(eHeader.text().substring(0, eHeader.text().length - 1));
+              }
+              setTimeout(function(){ typeWriter(id, ar); }, speedBackspace);
+            // If neither head or paragraph still has text, switch to next quote in array and start typing.
+            } else { 
+              isBackspacing = false;
+              i = 0;
+              isParagraph = false;
+              if(a<1){
+                console.log("1");
+                a = (a + 1);
+                queue = queue+1;
+                setTimeout(function(){ typeWriter(id, ar); }, 50);
+                // isBackspacing = false;
+              }
+              // a = (a + 1) % ar.length; //Moves to next position in array, always looping back to 0
+              // setTimeout(function(){ typeWriter(id, ar); }, 50);
+            }
+          }
+        }
+        else{
+          console.log("2");
+          document.getElementById("banner-main").innerHTML=textArray[1];
+          document.getElementById("button").style.display="block";
+          return;
+        }
+      }
+      // values to keep track of the number of letters typed, which quote to use. etc. Don't change these values.
+
+    }
+
+  </script>
+
+  <!-- <script type="text/javascript">
+    window.onload = function (){
+      html2canvas(document.body),{
+        onrendered: function (canvas) {
+          var a = document.createElement('a');
+          // toDataURL defaults to png, so we need to request a jpeg, then convert for file download.
+          a.href = canvas.toDataURL("image/jpeg").replace("image/jpeg", "image/octet-stream");
+          a.download = 'somefilename.jpg';
+          a.click();
+        }
+      }
+    }
+  </script> -->
+
+  <script type="text/javascript">
+    window.onload = function (){
+      html2canvas(document.querySelector('body')).then(canvas => {
+          var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+          window.location.href= image;
+      });
+  }
+    
+  </script>
+</body></html>
