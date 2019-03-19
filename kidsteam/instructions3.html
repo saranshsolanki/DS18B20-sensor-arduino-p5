@@ -33,7 +33,7 @@
         <div class="text" id="largeHeader"style=" font-size: 60px;color: white; font-family:'Bree Serif'  ">
           <p id="title">
             <span style="font-size: 30px;font-family: 'Quicksand';color: #EA8C53; font-weight: bold ">Step #3</span><br>
-            Tape the probe to <br> the spoon 
+            <span id="main_text">Tape the probe to <br> the spoon</span> 
           </p>
         </div>
 
@@ -41,7 +41,7 @@
           <a href="instructions4.html" id="button_link"><div class="primary-button" id= "button">CONTINUE</div></a>
         </div>
       </div>
-      <img id="imageSources" src="img/hold3.png" style="margin-top:10%;width: 60%">
+      <img id="imageSources" src="img/Tape1.png" style="margin-top:10%;width: 60%">
     </div>
     
   </body>
@@ -53,7 +53,7 @@
     </script> 
 
   <script type="text/javascript">
-    var imageSources = ["img/hold3.png", "img/hold4.png", "img/hold5.png"];
+    var imageSources = ["img/Tape1.png", "img/Tape2.png", "img/Tape3.png"];
 
     var index = 0;
     setInterval (function(){
@@ -64,6 +64,15 @@
       index++;
     } , 2000);
 
+    var hash = (window.location.hash);
+
+    if(hash == '#plastic'){
+      document.getElementById("main_text").innerHTML = "Tape the probe to the Plastic spoon"
+    }
+
+    if(hash == '#steel'){
+      document.getElementById("main_text").innerHTML = "Tape the probe to the Steel spoon"
+    }
     //  window.setTimeout(function(){
 
     //     // Move to a new location or you can do something else

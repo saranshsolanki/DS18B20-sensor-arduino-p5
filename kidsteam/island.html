@@ -40,8 +40,9 @@
       <div style="float: left;width: 40%;margin-top:15%;">
         <div class="output" id="output" style=" font-size: 32px;color: #EA8C53; font-family:'Quicksand'; font-weight: bold; ">
           <h1 class="cursor"></h1>
-       
+          
         </div>
+        <p id="sub-text"style="display:none; font-size: 20px;font-family: 'Quicksand';color: white; font-weight: normal;margin: 0px;margin-top: 40px">Record your hypothesis in your lab notebook.</p>
 
         <div id="button" style="width: 100%; padding-top: 50px;display: none">
           <a href="explore.html"><div class="primary-button" id= "button">START EXPLORING</div></a>
@@ -66,7 +67,7 @@
 
     // Typerwrite text content. Use a pipe to indicate the start of the second line "|".  
     var textArray = [
-      " Record your prediction. Which material will conduct energy the best?", 
+      "Make a hypothesis! Wood, plastic, and metal have different types of properties. Which material will conduct heat the best?", 
     ];
 
     // Speed (in milliseconds) of typing.
@@ -140,7 +141,7 @@
             i = 0;
             isParagraph = false;
             if(a<1){
-              console.log("1");
+              // console.log("1");
               a = (a + 1);
               queue = queue+1;
               setTimeout(function(){ typeWriter(id, ar); }, 50);
@@ -152,7 +153,8 @@
         }
       }
       else{
-        console.log("2");
+        // console.log("2");
+        document.getElementById("sub-text").style.display = "block";
         document.getElementById("output").innerHTML=textArray[0];
         document.getElementById("button").style.display="block";
         return;

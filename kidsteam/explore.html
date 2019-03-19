@@ -105,7 +105,7 @@
               
              
               <g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linejoin="round" stroke-linecap="round">
-                  <path class="path" d="M463.50767,241.235708 C449.921618,215.082854 424.752077,202.006427 387.999046,202.006427 C300.740407,202.006427 328.437678,335 207.326308,335 C126.585395,335 82.4766254,263.666667 75,121" id="Path-2" stroke="#FFFFFF" stroke-width="11.52"></path>
+                  <path class="path_steel" d="M463.50767,241.235708 C449.921618,215.082854 424.752077,202.006427 387.999046,202.006427 C300.740407,202.006427 328.437678,335 207.326308,335 C126.585395,335 82.4766254,263.666667 75,121" id="Path-2" stroke="#FFFFFF" stroke-width="11.52"></path>
               </g>
           </svg>
         </div>
@@ -133,7 +133,7 @@
   </body>
   <script type="text/javascript">
      var hash = (window.location.hash);
-     console.log(hash);
+     // console.log(hash);
 
      document.getElementsByClassName('island_label')[0]
       .addEventListener('click', function (event) {
@@ -226,7 +226,7 @@
     var hash = (window.location.hash);
     if(hash == '' || hash == '#wood'){
       var textArray = [
-        "Start with the Wood Island."
+        "Start your investgation by exploring the Wood Island!"
       ];
     }
     if (hash == '#plastic'){
@@ -236,7 +236,7 @@
     }
     if (hash == '#steel'){
       var textArray = [
-        "Amazing! Let's explore the Steel Island", 
+        "Amazing! Let's explore the Steel Island.", 
       ];
     }
     
@@ -312,7 +312,7 @@
             i = 0;
             isParagraph = false;
             if(a<1){
-              console.log("1");
+              // console.log("1");
               a = (a + 1);
               queue = queue+1;
               setTimeout(function(){ typeWriter(id, ar); }, 50);
@@ -324,7 +324,7 @@
         }
       }
       else{
-        console.log("2");
+        // console.log("2");
         document.getElementById("banner-explore").innerHTML= textArray[0];
         // document.getElementById("button").style.display="block";
         return;

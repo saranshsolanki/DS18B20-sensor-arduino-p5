@@ -48,12 +48,15 @@
             <span id="subtitle" style="font-size: 30px;font-family: 'Quicksand';color: #EA8C53; font-weight: bold ">Let us wait!</span><br>
             <span id="title">The thermometer needs to come back to room temperature.</span> 
           </p>
+          <p id="question"style="font-size: 20px;font-family: 'Quicksand';color: white; font-weight: normal;margin: 0px;margin-top: 0px">
+            What do you think is the reason for the thermometer to come back to room temperature? 
+          </p>
         </div>
 
         <div id="button" style="width: 100%; padding-top: 50px;display: none">
           <a href="explore.html" id ="button_link"><div class="primary-button" id= "button">CONTINUE</div></a>
         </div>
-      </div>
+      </div
 
       <div style="width: 50%">
         <div id="bar" style="position:absolute; height: 400px; top:190px;left: 1000px; width: 140px; 
@@ -89,6 +92,12 @@
   <script type="text/javascript">
     roomTemperature = sessionStorage.getItem("roomTemp");
     document.getElementById('roomTemp').innerHTML = Math.round(roomTemperature)  + '°C';
+    var hash = (window.location.hash);
+
+    if(hash == "#steel"){
+      document.getElementById('question').innerHTML = 'The thermometer needs to be back at room temperature. By doing this, every spoon starts from the same temperature. '
+    }
+    // document.getElementById('button_link').href = 'instructions2.html' + hash;
   </script>
 
 </html>

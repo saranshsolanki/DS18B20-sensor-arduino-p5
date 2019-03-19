@@ -50,7 +50,7 @@
 
 
       
-      <img src="img/story.png" style="margin-top:15%;width: 60%">
+      <img src="img/story.png" style="margin-top:15%;width: 50%;margin-left: 100px">
 
       
     </div>
@@ -66,8 +66,8 @@
 
     // Typerwrite text content. Use a pipe to indicate the start of the second line "|".  
     var textArray = [
-      " Equinox and Suri are twins born to Thomas Corsair, an astronaut who was exposed to an unusual substance while exploring an alien planet. Both have the power to store an infinite amount of thermal energy.", 
-      "Just recently, they have discovered their superpowers and are developing a weapon to harness their energy.  They are exploring materials with high thermal energy conductivity and need your help in deciding which material they should use.", 
+      " Equinox and Suri are twins born to Thomas Corsair, an astronaut who was exposed to an unusual substance while exploring an alien planet. They both have the power to store an infinite amount of thermal energy.", 
+      "Just recently, they have discovered their superpowers and are developing a special glove to harness their energy.", 
     ];
 
     // Speed (in milliseconds) of typing.
@@ -141,7 +141,7 @@
             i = 0;
             isParagraph = false;
             if(a<1){
-              console.log("1");
+              // console.log("1");
               a = (a + 1);
               queue = queue+1;
               setTimeout(function(){ typeWriter(id, ar); }, 50);
@@ -153,7 +153,7 @@
         }
       }
       else{
-        console.log("2");
+        // console.log("2");
         document.getElementById("output").innerHTML=textArray[1];
         document.getElementById("button").style.display="block";
         return;

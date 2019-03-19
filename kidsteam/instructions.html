@@ -37,7 +37,7 @@
         <div class="text" id="largeHeader"style=" font-size: 60px;color: white; font-family:'Bree Serif'  ">
           <p id="title">
             <span style="font-size: 30px;font-family: 'Quicksand';color: #EA8C53; font-weight: bold ">Step #1</span><br>
-            Gather the spoon 
+            <span id="main_text">Gather the spoon </span>
           </p>
         </div>
 
@@ -47,7 +47,7 @@
       </div>
 
       
-      <img src="img/hold.png" style="margin-top:10%;width: 60%">
+      <img id="image" src="img/Remove1.png" style="margin-top:10%;width: 60%">
 
       
     </div>
@@ -59,6 +59,43 @@
   <script type="text/javascript">
       var hash = (window.location.hash);
       document.getElementById("button_link").href += hash; 
+
+      if(hash == '#wood'){
+        document.getElementById("image").src = 'img/hold.png'; 
+
+        document.getElementById("main_text").innerHTML = 'Gather the Wood spoon'; 
+      }
+      if(hash == '#plastic'){
+        document.getElementById('button_link').href = 'cool.html' + hash;
+
+        document.getElementById("main_text").innerHTML = 'Remove the probe from the Wood spoon'; 
+        var imageSources = ["img/Remove1.png", "img/Remove2.png"];
+
+        var index = 0;
+        setInterval (function(){
+          if (index === imageSources.length) {
+            index = 0;
+          }
+          document.getElementById("image").src = imageSources[index];
+          index++;
+        } , 2000);
+      }
+
+      if(hash == '#steel'){
+        document.getElementById('button_link').href = 'cool.html' + hash;
+        
+        document.getElementById("main_text").innerHTML = 'Remove the probe from the Plastic spoon'; 
+        var imageSources = ["img/Remove1.png", "img/Remove2.png"];
+
+        var index = 0;
+        setInterval (function(){
+          if (index === imageSources.length) {
+            index = 0;
+          }
+          document.getElementById("image").src = imageSources[index];
+          index++;
+        } , 2000);
+      }
 
     // window.location.hash
     </script> 

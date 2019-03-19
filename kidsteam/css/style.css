@@ -345,6 +345,23 @@ position: absolute;
   }
 }
 
+.path_steel {
+  stroke-dasharray: 18;
+  stroke-dashoffset: 100;
+
+  animation: dashsteel 10s linear infinite;
+}
+
+@keyframes dashsteel {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+
 #banner-main{
   width: 50%; 
   position: absolute;

@@ -37,8 +37,8 @@ function draw() {
 
 
 	if(finalData > 0 && (finalData - roomTemperature < 1.5) && (finalData - roomTemperature > 1)){
-		console.log("here");
-		console.log(currentX);
+		// console.log("here");
+		// console.log(currentX);
 		lastX = currentX;
 	}
 
@@ -48,9 +48,9 @@ function draw() {
 		document.getElementById('currentTempLabel').style.top = lastX-25 + 'px';
 
 		document.getElementById('subtitle').innerHTML = 'Perfect!';
-		document.getElementById('title').innerHTML = 'Thermometer is cool now!';
+		document.getElementById('title').innerHTML = 'Thermometer is ready to investigate the next island!';
 		document.getElementById('button').style.display = 'block';
-		document.getElementById('button_link').href = "explore.html" + hash;
+		document.getElementById('button_link').href = 'instructions2.html' + hash;
 
 
 		// setTimeout(function(){

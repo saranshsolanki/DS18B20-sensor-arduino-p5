@@ -39,6 +39,10 @@
       <!-- Tiffanie's questions come here. -->
   </div>
 
+   <div id='legend-div' style="position: absolute;right: 110px;top: 45px">
+    <img id="legend"  src="img/legend.png" style="width: 130px;display: none">
+  </div>
+
   <div id="bar" style="margin-top:183px;  position: absolute; left: 90px; color: rgba(255, 255, 255, 0.3);font-family: 'Bree Serif'; font-weight: bold">
     <p>
       50°C
@@ -166,18 +170,27 @@
     // Typerwrite text content. Use a pipe to indicate the start of the second line "|". 
     var hash = (window.location.hash);
     if(hash == '#wood'){
+      document.getElementById('legend').style.display = 'block';
+      document.getElementById('legend').src = 'img/legend-wood.png';
+      document.getElementById('legend-div').style.top = '80px';
+
       var textArray = [
         "What are you noticing?", 
         "Did it get as hot as you thought it would?", 
       ];
     }
     if (hash == '#steel'){
+      document.getElementById('legend').style.display = 'block';
+      document.getElementById('legend').src = 'img/legend-steel.png';
       var textArray = [
         "What are you noticing?", 
         "Is your hypothesis correct?", 
       ];
     }
     if (hash == '#plastic'){
+      document.getElementById('legend').style.display = 'block';
+      document.getElementById('legend').src = 'img/legend-plastic.png';
+      document.getElementById('legend-div').style.top = '65px';
       var textArray = [
         "What are you noticing?", 
         "Is it heating up at a faster or slower rate than the wood spoon?"
@@ -262,7 +275,7 @@
             i = 0;
             isParagraph = false;
             if(a<1){
-              console.log("1");
+              // console.log("1");
               a = (a + 1);
               queue = queue+1;
               setTimeout(function(){ typeWriter(id, ar); }, 50);
@@ -274,7 +287,7 @@
         }
       }
       else{
-        console.log("2");
+        // console.log("2");
         document.getElementById("banner-main").innerHTML=textArray[1];
         document.getElementById("button").style.display="block";
         return;
